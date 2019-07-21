@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="false" 
   realizations="true" associations="false" dependencies="false" nesting-relationships="false" router="FAN">  
-  <class id="1" language="java" name="com.bbc.uiapibbc.NewsPageTest" project="uiapibbc" 
-    file="/uiapibbc/src/test/java/com/bbc/uiapibbc/NewsPageTest.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.javatpoint.seleniumjavatpoint.NewsPageTest" project="uiapibbc"
+    file="/uiapibbc/src/test/java/com/javatpoint/seleniumjavatpoint/NewsPageTest.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="84" width="234" x="192" y="169"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.bbc.uiapibbc.NewsVideoPage" project="uiapibbc" 
-    file="/uiapibbc/src/main/java/com/bbc/uiapibbc/NewsVideoPage.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="com.javatpoint.seleniumjavatpoint.NewsVideoPage" project="uiapibbc"
+    file="/uiapibbc/src/main/java/com/javatpoint/seleniumjavatpoint/NewsVideoPage.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="174" width="863" x="113" y="0"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,7 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.bbc.uiapibbc.SportPage" project="uiapibbc" 
+  <class id="3" language="java" name="com.javatpoint.seleniumjavatpoint.SportPage" project="uiapibbc"
     file="/uiapibbc/src/main/java/com/bbc/uiapibbc/SportPage.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="318" width="552" x="172" y="151"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
