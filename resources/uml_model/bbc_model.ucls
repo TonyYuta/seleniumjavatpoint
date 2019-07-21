@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.bbc.uiapibbc.HomePage" project="uiapibbc" 
-    file="/uiapibbc/src/main/java/com/bbc/uiapibbc/HomePage.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="com.bbc.uiapibbc.seleniumjavatpoint.HomePage" project="uiapibbc"
+    file="/uiapibbc/src/main/java/com/bbc/uiapibbc/seleniumjavatpoint.HomePage.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="300" width="593" x="676" y="46"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

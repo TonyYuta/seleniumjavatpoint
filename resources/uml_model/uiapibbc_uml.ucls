@@ -33,8 +33,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.bbc.uiapibbc.HomePage" project="uiapibbc" 
-    file="/uiapibbc/src/main/java/com/bbc/uiapibbc/HomePage.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="com.bbc.uiapibbc.seleniumjavatpoint.HomePage" project="uiapibbc"
+    file="/uiapibbc/src/main/java/com/bbc/uiapibbc/seleniumjavatpoint.HomePage.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="-1" width="-1" x="258" y="148"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
