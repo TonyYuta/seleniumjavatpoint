@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" name="Suite">
-<test thread-count="1" name="Test">
+  <suite name="Page Object test example">
+    <parameter name="appURL" value="https://www.bbc.com/"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="groups" value="all"/>
+    <test name="basicTest">
   <classes>
     <class name="com.javatpoint.seleniumjavatpoint.BaseTest"/>
     <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>
