@@ -10,7 +10,9 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    private static String homePageUrl = "https://www.javatpoint.com/";
+    //private static String homePageUrl = "https://www.javatpoint.com/";
+    private static String homePageUrl = " https://www.bbc.com//";
+
 
     //cssSelector
     private String homePageTab = "#orb-nav-links > ul > li.orb-nav-homedotcom.orb-w > a";
