@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import seleniumjavatpoint.AboutPage;
+import seleniumjavatpoint.GoogleSearch;
 import seleniumjavatpoint.HomePage;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ public class BaseTest {
         public WebDriver driver;
 
         HomePage homePage;
+        AboutPage aboutPage;
+        GoogleSearch googleSearch;
 
         ArrayList<String> al;
         HashSet<String> hs;
@@ -35,6 +39,8 @@ public class BaseTest {
             driver = DriverFactory.getDriver();
 
             homePage = new HomePage(driver);
+            aboutPage = new AboutPage(driver);
+            googleSearch = new GoogleSearch(driver);
 
         }
 

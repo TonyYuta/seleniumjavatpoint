@@ -1,13 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
   <suite name="Page Object test example">
-    <parameter name="appURL" value="https://www.bbc.com/"/>
-    <!--<parameter name="appURL" value="https://www.javatpoint.com/selenium-tutorial/"/>-->
+    <!--<parameter name="appURL" value="https://www.bbc.com/"/>-->
+    <parameter name="appURL" value="https://www.javatpoint.com/selenium-tutorial/"/>
     <parameter name="browser" value="chrome"/>
     <parameter name="groups" value="all"/>
     <test name="basicTest">
   <classes>
     <class name="com.javatpoint.seleniumjavatpoint.BaseTest"/>
-    <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>
+  <!--  <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>-->
+    <class name="com.javatpoint.seleniumjavatpoint.AboutPageTest"/>
+    <class name="com.javatpoint.seleniumjavatpoint.GoogleSearchTest"/>
   </classes>
 </test> <!-- Test -->
 </suite> <!-- Suite -->
