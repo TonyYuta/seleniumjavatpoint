@@ -11,7 +11,7 @@ public class HomePageTest extends BaseTest{
 
     @Test(description = "Navigate to Home Page",
         enabled = true,
-        groups = {"bat", "HomePage", "regression"},
+        groups = {"bat", "HomePage", "regression", "all"},
         dependsOnGroups = {},
         priority = 0)
     public void testNavigateToHomePage(){
@@ -22,7 +22,7 @@ public class HomePageTest extends BaseTest{
 
     @Test(description = "search in Google",
             enabled = true,
-            groups = {"bat", "regression"},
+            groups = {"bat", "regression", "all"},
             priority = 0
         )
     public void testSearchInGoogle(){
