@@ -19,7 +19,6 @@ public class GoogleSearch extends BasePage{
     // cssSelector
     private String homePageTab = "#orb-nav-links > ul > li.orb-nav-homedotcom.orb-w > a";
 
-    //private String aboutLink = "#hptl>a:nth-child(1)";
     private By aboutLink = By.cssSelector("#hptl>a:nth-child(1)");
 
 

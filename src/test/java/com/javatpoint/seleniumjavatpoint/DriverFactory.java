@@ -17,7 +17,7 @@ public class DriverFactory {
 
     public static WebDriver driver;
     public static DesiredCapabilities capabilities;
-    public static String driverPath = "/uiapibbc/resources/webdrivers/mac/";
+    public static String driverPath = "/seleniumjavatpoint/resources/webdrivers/mac/";
 
     public static WebDriver getDriver() {
         return driver;

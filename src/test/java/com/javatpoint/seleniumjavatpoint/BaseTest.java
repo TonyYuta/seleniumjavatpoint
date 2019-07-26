@@ -1,13 +1,11 @@
 package com.javatpoint.seleniumjavatpoint;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import seleniumjavatpoint.AboutPage;
 import seleniumjavatpoint.GoogleSearch;
-import seleniumjavatpoint.HomePage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,7 +14,6 @@ public class BaseTest {
 
         public WebDriver driver;
 
-        HomePage homePage;
         AboutPage aboutPage;
         GoogleSearch googleSearch;
 
@@ -38,7 +35,6 @@ public class BaseTest {
             }
             driver = DriverFactory.getDriver();
 
-            homePage = new HomePage(driver);
             aboutPage = new AboutPage(driver);
             googleSearch = new GoogleSearch(driver);
 
