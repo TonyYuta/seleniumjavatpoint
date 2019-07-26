@@ -10,8 +10,8 @@
   <classes>
     <class name="com.javatpoint.seleniumjavatpoint.BaseTest"/>
   <!--  <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>-->
-    <class name="com.javatpoint.seleniumjavatpoint.AboutPageTest"/>
-    <class name="com.javatpoint.seleniumjavatpoint.GoogleSearchTest"/>
+    <class name="com.javatpoint.seleniumjavatpoint.GoogleAboutPageTest"/>
+    <class name="com.javatpoint.seleniumjavatpoint.GoogleMainPageTest"/>
   </classes>
 </test> <!-- Test -->
 </suite> <!-- Suite -->

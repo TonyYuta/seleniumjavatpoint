@@ -2,9 +2,9 @@ package seleniumjavatpoint;
 
 import org.openqa.selenium.WebDriver;
 
-public class AboutPage extends BasePage{
+public class GoogleAboutPage extends BasePage{
 
-    public AboutPage(WebDriver driver){
+    public GoogleAboutPage(WebDriver driver){
         super(driver);
     }
 

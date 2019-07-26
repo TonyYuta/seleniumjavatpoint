@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GoogleSearch extends BasePage{
+public class GoogleMainPage extends BasePage{
 
-    public GoogleSearch(WebDriver driver){
+    public GoogleMainPage(WebDriver driver){
         super(driver);
     }
 
@@ -22,13 +22,15 @@ public class GoogleSearch extends BasePage{
     private By aboutLink = By.cssSelector("#hptl>a:nth-child(1)");
 
 
-    public AboutPage navigateToAboutPage(){
+    public GoogleAboutPage navigateToAboutPage(){
        // WebElement aboutLinkElement = driver.findElement(aboutLink);
         WebElement aboutLinkElement = wait.until(ExpectedConditions.presenceOfElementLocated(aboutLink));
 
         aboutLinkElement.click();
-        return new AboutPage(driver);
+        return new GoogleAboutPage(driver);
     }
+
+
 
 
 
