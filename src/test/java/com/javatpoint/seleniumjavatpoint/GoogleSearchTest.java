@@ -7,7 +7,7 @@ public class GoogleSearchTest extends BaseTest{
 
     @Test(description = "Navigate to About Page",
         enabled = true,
-        dependsOnGroups = {},
+        //dependsOnGroups = {"main"},
         groups = {"bat", "regression", "all", "HomePage"},
         priority = 0
     )
