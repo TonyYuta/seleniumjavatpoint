@@ -22,7 +22,7 @@ public class GoogleMainPageTest extends BaseTest{
 
     @Test(description = "Title of Google Main page",
         enabled = true,
-        groups = {"bat", "sanity", "regression", "Google"},
+        groups = {"bat", "sanity", "regression", "Google", "all"},
         priority = 1)
     public void testGetGoogleMainPageTitle(){
         String expected = "Google";
@@ -48,7 +48,7 @@ public class GoogleMainPageTest extends BaseTest{
 
     @Test(description = "Search text",
             enabled = true,
-            groups = {"bat", "search"},
+            groups = {"bat", "search", "all"},
             dependsOnGroups = "sanity",
             dependsOnMethods="testGetGoogleMainPageTitle",
             priority = 0)
@@ -62,7 +62,7 @@ public class GoogleMainPageTest extends BaseTest{
 
     @Test(description = "Search text",
             enabled = true,
-            groups = {"bat", "search"},
+            groups = {"bat", "search", "all"},
             dependsOnGroups = "sanity",
             dependsOnMethods="testGetGoogleMainPageTitle",
             priority = 0)
