@@ -46,6 +46,20 @@ public class GoogleMainPageTest extends BaseTest{
     }
 
 
+    @Test(description = "Navigate to Google Store Page",
+            enabled = true,
+            groups = {"regression", "all"},
+            dependsOnGroups = {"sanity"},
+            dependsOnMethods = "testGetGoogleMainPageTitle",
+            priority = 2)
+    public void testNavigateToStorePage(){
+        googleMainPage.navigateToMainPage();
+        googleMainPage.navigateToGoogleStorePage();
+        String expected = "Google Store for Google Made Devices & Accessories";
+        Assert.assertEquals(googleStorePage.currentPageTitle(), expected,"mismatch in Store Page title");
+    }
+
+
     @Test(description = "Search text",
             enabled = true,
             groups = {"bat", "search", "all"},
@@ -70,8 +84,9 @@ public class GoogleMainPageTest extends BaseTest{
         String searchText = "javatpoint selenium";
         String expected = "About";
         googleMainPage.navigateToMainPage();
-        Assert.assertTrue(googleMainPage.searchText(searchText).contains(expected),"mismatch ir Search Results");
+        Assert.assertTrue(googleMainPage.searchText(searchText).contains(expected),"mismatch in Search Results");
     }
+
 
 
 

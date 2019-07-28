@@ -6,18 +6,20 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import seleniumjavatpoint.GoogleAboutPage;
 import seleniumjavatpoint.GoogleMainPage;
+import seleniumjavatpoint.GoogleStorePage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
 public class BaseTest {
 
-        public WebDriver driver;
+    public WebDriver driver;
 
-        GoogleAboutPage googleAboutPage;
-        GoogleMainPage googleMainPage;
+    GoogleMainPage googleMainPage;
+    GoogleAboutPage googleAboutPage;
+    GoogleStorePage  googleStorePage;
 
-        ArrayList<String> al;
+    ArrayList<String> al;
         HashSet<String> hs;
 
         /**
@@ -34,9 +36,9 @@ public class BaseTest {
             }
             driver = DriverFactory.getDriver();
 
-            googleAboutPage = new GoogleAboutPage(driver);
             googleMainPage = new GoogleMainPage(driver);
-
+            googleAboutPage = new GoogleAboutPage(driver);
+            googleStorePage = new GoogleStorePage(driver);
         }
 
         @AfterClass(enabled = true, alwaysRun = true)
