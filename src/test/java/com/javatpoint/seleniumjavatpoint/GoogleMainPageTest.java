@@ -60,6 +60,20 @@ public class GoogleMainPageTest extends BaseTest{
     }
 
 
+    @Test(description = "Search text",
+            enabled = true,
+            groups = {"bat", "search"},
+            dependsOnGroups = "sanity",
+            dependsOnMethods="testGetGoogleMainPageTitle",
+            priority = 0)
+    public void testSearchText02(){
+        String searchText = "javatpoint selenium";
+        String expected = "About";
+        googleMainPage.navigateToMainPage();
+        Assert.assertTrue(googleMainPage.searchText(searchText).contains(expected),"mismatch ir Search Results");
+    }
+
+
 
 
 
