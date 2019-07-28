@@ -23,7 +23,7 @@ public class GoogleMainPageTest extends BaseTest{
     @Test(description = "Title of Google Main page",
         enabled = true,
         groups = {"bat", "sanity", "regression", "Google", "all"},
-        priority = 1)
+        priority = 0)
     public void testGetGoogleMainPageTitle(){
         String expected = "Google";
         Assert.assertEquals(googleMainPage.currentPageTitle(), expected,

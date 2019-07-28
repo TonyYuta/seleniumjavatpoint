@@ -29,7 +29,6 @@ public class BaseTest {
         public void initializeTestBaseSetup(String browser, String appURL, String groups) {
             try {
                 DriverFactory.setDriver(browser, appURL, groups);
-
             } catch (Exception e) {
                 System.out.println("Error....." + e.getStackTrace());
             }
