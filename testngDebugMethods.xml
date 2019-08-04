@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+  <suite name="Page Object test example">
+    <!--<parameter name="appURL" value="https://www.bbc.com/"/>-->
+   <!-- <parameter name="appURL" value="https://www.javatpoint.com/selenium-tutorial/"/>-->
+    <parameter name="appURL" value="https://www.google.com/"/>
+    <parameter name="browser" value="chrome"/>
+
+  <!--<parameter name="browser" value="firefox"/>-->
+    <parameter name="groups" value="all"/>
+    <test name="basicTest">
+    <classes>
+    <!--  <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>-->
+    <!--    <class name="com.javatpoint.seleniumjavatpoint.GoogleAboutPageTest"/>-->
+    <!--<class name="com.javatpoint.seleniumjavatpoint.GoogleMainPageTest"/>-->
+      <class name="com.javatpoint.seleniumjavatpoint.MiscellaneousTest">
+        <methods>
+          <exclude name="testUrl" />
+          <exclude name="testClearInputByDriver" />
+          <exclude name="testGoogleInputByBy" />
+          <exclude name="testNavigatingBackwardInBrowserHistory"/>
+          <exclude name="testRefreshReloadAWebPage"/>
+          <exclude name="testPracticeSwitchWindow"/>
+          <exclude name="testDragAndDrop"/>
+          <exclude name="testRadioBtnMale"/>
+          <include name="testCheckBox"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import seleniumjavatpoint.GoogleAboutPage;
-import seleniumjavatpoint.GoogleMainPage;
-import seleniumjavatpoint.GoogleStorePage;
+import seleniumjavatpoint.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,6 +16,8 @@ public class BaseTest {
     GoogleMainPage googleMainPage;
     GoogleAboutPage googleAboutPage;
     GoogleStorePage  googleStorePage;
+    Miscellaneous miscellaneous;
+    SwitchWindows switchWindows;
 
     ArrayList<String> al;
         HashSet<String> hs;
@@ -39,6 +39,8 @@ public class BaseTest {
             googleMainPage = new GoogleMainPage(driver);
             googleAboutPage = new GoogleAboutPage(driver);
             googleStorePage = new GoogleStorePage(driver);
+            miscellaneous = new Miscellaneous(driver);
+            switchWindows = new SwitchWindows(driver);
         }
 
         @AfterClass(enabled = true, alwaysRun = true)

@@ -4,14 +4,20 @@
    <!-- <parameter name="appURL" value="https://www.javatpoint.com/selenium-tutorial/"/>-->
     <parameter name="appURL" value="https://www.google.com/"/>
     <parameter name="browser" value="chrome"/>
+
   <!--<parameter name="browser" value="firefox"/>-->
     <parameter name="groups" value="all"/>
     <test name="basicTest">
-  <classes>
-    <class name="com.javatpoint.seleniumjavatpoint.GoogleAboutPageTest"/>
-    <class name="com.javatpoint.seleniumjavatpoint.GoogleMainPageTest"/>
-    <class name="com.javatpoint.seleniumjavatpoint.MiscellaneousTest"/>
-
-  </classes>
-</test> <!-- Test -->
+    <classes>
+    <!--  <class name="com.javatpoint.seleniumjavatpoint.HomePageTest"/>-->
+    <!--    <class name="com.javatpoint.seleniumjavatpoint.GoogleAboutPageTest"/>-->
+    <!--<class name="com.javatpoint.seleniumjavatpoint.GoogleMainPageTest"/>-->
+      <class name="com.javatpoint.seleniumjavatpoint.SwitchWindowsTest">
+        <methods>
+          <exclude name=""/>
+          <include name="testPracticeSwitchWindow"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
