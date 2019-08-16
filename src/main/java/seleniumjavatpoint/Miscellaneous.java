@@ -252,5 +252,14 @@ public class Miscellaneous extends BasePage{
     }
 
 
+    /**
+     * @param url
+     * @return page title
+     * test: testNavigate
+     */
+    public String navigate(String url){
+        driver.navigate().to(url);
+        return driver.getTitle();
+    }
 
 }

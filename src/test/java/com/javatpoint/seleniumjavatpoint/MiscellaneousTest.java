@@ -168,4 +168,21 @@ public class MiscellaneousTest extends BaseTest{
         Assert.assertTrue(miscellaneous.getPageSource(url).contains(expected), "mismatch in source code");
     }
 
+
+    @Test(description="navigate to",
+        enabled=true,
+        groups={"all", "bat", "regression"},
+        dependsOnGroups={},
+        dependsOnMethods={},
+        priority=5)
+    public void testNavigate(){
+        String url = "https://www.javatpoint.com";
+        String expected = "Tutorials List - Javatpoint";
+        Assert.assertEquals(miscellaneous.navigate(url),expected, "mismatch in a title");
+    }
+
+
+
+
+
 }

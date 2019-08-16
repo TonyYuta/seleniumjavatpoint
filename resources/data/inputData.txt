@@ -1,0 +1,15 @@
+    private By googleSearchBox = By.cssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input");
+    private By googleGmailLinkCss = By.cssSelector("#gbw > div > div > div > div > a");
+    private By googleGmailLinkXpath = By.xpath("//*[@id=\"gbw\"]/div/div/div/div[1]/a");
+    private By newBrowserWindowBtnCss = By.cssSelector("b > a");
+    private By newBrowserWindowBtnXpath = By.xpath("//div/b/a");
+    private By pictureElementXpath = By.xpath("//*[@id=\"sourceImage\"]");
+    private By pictureElementCss = By.cssSelector("#sourceImage");
+    private By targetXpath = By.xpath("//*[@id=\"targetDiv\"]");
+    private By targetCss = By.cssSelector("#targetDiv");
+    private By dropdownXpath = By.xpath("//*[@id=\"testingDropdown\"]");
+    private By dropdownCss = By.cssSelector("#testingDropdown");
+    private By sourceImageCss = By.cssSelector("#sourceImage");
+    private By sourceImageXpath = By.xpath("//img[@id=\"sourceImage\"]");
+    private By radioBtnFemaleXpath = By.xpath("//input[@id=\"female\"]");
+    private By radioBtnFemaleCss = By.cssSelector("#female");

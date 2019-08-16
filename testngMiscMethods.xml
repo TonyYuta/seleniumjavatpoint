@@ -24,7 +24,8 @@
           <exclude name="testPracticeSwitchWindow"/>
           <exclude name="testDropdown"/>
           <exclude name="testGetCurrentUrl"/>
-          <include name="testGetPageSource"/>
+          <exclude name="testGetPageSource"/>
+          <include name="testNavigate"/>
         </methods>
       </class>
     </classes>
