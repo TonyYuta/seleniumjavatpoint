@@ -1,14 +1,19 @@
 package seleniumjavatpoint;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -31,11 +36,14 @@ public class Miscellaneous extends BasePage{
     private By targetCss = By.cssSelector("#targetDiv");
     private By dropdownXpath = By.xpath("//*[@id=\"testingDropdown\"]");
     private By dropdownCss = By.cssSelector("#testingDropdown");
+    private By sourceImageCss = By.cssSelector("#sourceImage");
+    private By sourceImageXpath = By.xpath("//img[@id=\"sourceImage\"]");
+    private By radioBtnFemaleXpath = By.xpath("//input[@id=\"female\"]");
+    private By radioBtnFemaleCss = By.cssSelector("#female");
 
     public Miscellaneous(WebDriver driver){
         super(driver);
     }
-
 
     /**
      * @param searchText
@@ -53,7 +61,6 @@ public class Miscellaneous extends BasePage{
         googleGmailLinkCssElement.click();
         return driver.getTitle();
     }
-
 
     /**
      * @return page title
@@ -75,7 +82,6 @@ public class Miscellaneous extends BasePage{
 
         return result;
     }
-
 
     /**
      * @return page title
@@ -157,9 +163,21 @@ public class Miscellaneous extends BasePage{
         WebElement element = driver.findElement(By.cssSelector("#sourceImage"));
         WebElement target = driver.findElement(By.cssSelector("#targetDiv"));
         (new Actions(driver)).dragAndDrop(element, target).perform();
-
-       // try{Thread.sleep(5000);} catch(InterruptedException e){e.printStackTrace();}
+        //try{Thread.sleep(5000);} catch(InterruptedException e){e.printStackTrace();}
         return null;
+    }
+
+
+    public void dragAndDrop02(){
+        driver.get("https://www.testandquiz.com/selenium/testing.html");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,200)");
+        WebElement element = driver.findElement(By.cssSelector("#sourceImage"));
+        WebElement target = driver.findElement(By.cssSelector("#targetDiv"));
+        Actions builder = new Actions(driver);
+        Action dragAndDrop = builder.clickAndHold(element).moveToElement(target).release(target).build();
+        dragAndDrop.perform();
+        try{Thread.sleep(3000);}catch(InterruptedException e){e.printStackTrace();}
     }
 
 
@@ -172,25 +190,26 @@ public class Miscellaneous extends BasePage{
         //try{Thread.sleep(5000);} catch(InterruptedException e){e.printStackTrace();}
 
         we = driver.findElement(By.cssSelector("#male"));
+        we2 = driver.findElement(By.cssSelector("#female"));
+
         we.click();
 
         //try{Thread.sleep(2000);} catch(InterruptedException e){e.printStackTrace();}
 
-        System.out.println(driver.findElement(By.xpath("//*[@id=\"male\"]")).isSelected());
-        System.out.println(driver.findElement(By.xpath("//*[@id=\"female\"]")).isSelected());
+        System.out.println(we.isSelected());
+        System.out.println(we2.isSelected());
 
         Map<String, Boolean> result = new LinkedHashMap<>();
-        result.put("male", driver.findElement(By.xpath("//*[@id=\"male\"]")).isSelected());
-        result.put("female", driver.findElement(By.cssSelector("#female")).isSelected());
+        result.put("male", we.isSelected());
+        result.put("female", we2.isSelected());
 
         return result;
     }
 
-
     /**
      * @param at Automation Testing
      * @param pt Performance Testing
-     * @return dropdown state
+     * @return check box state
      */
     public Map checkBox(boolean at, boolean pt){
         Map<String,Boolean> result = new HashMap<>();
@@ -215,7 +234,6 @@ public class Miscellaneous extends BasePage{
         return result;
     }
 
-
     /**
      * Use Select class for selecting value from dropdown
      * @return text of selected element
@@ -229,6 +247,27 @@ public class Miscellaneous extends BasePage{
         return dropdown.getFirstSelectedOption().getText();
     }
 
+    /**
+     * @param url
+     * @return page title after selection dropdown element
+     * test: testDropdown2
+     */
+    public String dropdown2(String url){
+        StringBuilder result = new StringBuilder();
+
+        driver.get(url);
+
+        By dropdownById = By.id("fruits");
+        WebElement we = wait.until(ExpectedConditions.presenceOfElementLocated(dropdownById));
+        Select dropdown = new Select(we);
+        dropdown.selectByIndex(1);
+        result.append(dropdown.getFirstSelectedOption().getText());
+     //   dropdown.selectByValue("Orange");
+        //dropdown.selectByVisibleText("Grape");
+    //    result.append(" ").append(dropdown.getFirstSelectedOption().getText());
+
+        return result.toString();
+    }
 
     /**
      * @param url
@@ -240,7 +279,6 @@ public class Miscellaneous extends BasePage{
         return driver.getCurrentUrl();
     }
 
-
     /**
      * @param url
      * @return page source
@@ -251,7 +289,6 @@ public class Miscellaneous extends BasePage{
         return driver.getPageSource();
     }
 
-
     /**
      * @param url
      * @return page title
@@ -261,5 +298,218 @@ public class Miscellaneous extends BasePage{
         driver.navigate().to(url);
         return driver.getTitle();
     }
+
+    /**
+     * @param url
+     * @return boolean isEnabled
+     * test: testIsDisplayed
+     */
+    public boolean isDisplayed(String url){
+        driver.navigate().to(url);
+        we = wait.until(ExpectedConditions.visibilityOfElementLocated(sourceImageXpath));
+        return we.isDisplayed();
+    }
+
+
+    /**
+     * @param url
+     * @return boolean is female selected
+     * test: testIsEnabled
+     */
+    public boolean isEnabled(String url){
+        driver.get(url);
+        we = wait.until(ExpectedConditions.elementToBeClickable(radioBtnFemaleXpath));
+        we.click();
+        return we.isSelected();
+    }
+
+
+    /**
+     * @param text
+     * @return getAttribute("value") - entered text
+     * test: testTypeCommands
+     */
+    public String typeCommands(String text){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.get(url);
+        By textBoxXpatx = By.xpath("//input[@id='fname']");
+        we = wait.until(ExpectedConditions.presenceOfElementLocated(textBoxXpatx));
+        we.sendKeys(text);
+        return we.getAttribute("value");
+    }
+
+
+    /**
+     * @return
+     * test: testRightClick
+     */
+    public void rightClick(){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.get(url);
+        By imageXpath = By.xpath("//img[@id='sourceImage']");
+        By imageCss = By.cssSelector("#sourceImage");
+        we = wait.until(ExpectedConditions.presenceOfElementLocated(imageXpath));
+        Actions action = new Actions(driver);
+        action.contextClick(we).perform();
+        try{
+            Thread.sleep(3000);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * test: testMouseHover
+     */
+    public void mouseHover() {
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.get(url);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300)"); //scroll down the page by  300 pixel vertical
+
+        By generateAlertBoxBtnCss = By.cssSelector("div.row:nth-child(20)>div>p>button");
+        By generateAlertBoxBtnXpath = By.xpath("//button[contains(text(),'Generate Alert Box')]");
+        we = wait.until(ExpectedConditions.elementToBeClickable(generateAlertBoxBtnCss));
+        Actions action = new Actions(driver);
+        action.moveToElement(we).perform();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * test: testRefreshThePage
+     */
+    public void refreshThePage(){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.navigate().to(url);
+        By textBoxXpatx = By.xpath("//input[@id='fname']");
+        we = wait.until(ExpectedConditions.presenceOfElementLocated(textBoxXpatx));
+
+        //1. Using driver.navigate command -
+        driver.navigate().refresh();
+
+        //2. Using driver.getCurrentUrl() with driver.get() command -
+        driver.get(driver.getCurrentUrl());
+
+        //3. Using driver.getCurrentUrl() with driver.navigate() command -
+        driver.navigate().to(driver.getCurrentUrl());
+
+        //4. Pressing an F5 key on any textbox using the sendKeys command -
+
+        driver.findElement(textBoxXpatx).sendKeys(Keys.F5);
+
+        //5. Passing ascii value of the F5 key, i.e., "\uE035" using the sendKeys command -
+        driver.findElement(textBoxXpatx).sendKeys("\uE035");
+    }
+
+    /**
+     * submit button
+     */
+    void submit(){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.get(url);
+        By submitBtn = By.xpath("//button[@id='idOfButton']");
+        we = wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
+        we.submit();
+
+        WebElement element = driver.findElement(By.id("SubmitButton"));
+        String attValue = element.getAttribute("id"); //This will return "SubmitButton"
+    }
+
+
+    /**
+     * @return getSize
+     * test: testGetSize
+     */
+    public int[]  getSize(){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        int[] result = new int[2];
+        driver.get(url);
+        By textBoxCss = By.cssSelector("#fname");
+        WebElement we = wait.until(ExpectedConditions.presenceOfElementLocated(textBoxCss));
+        Dimension dimennsions = we.getSize();
+        result[0] = dimennsions.height;
+        result[1] = dimennsions.width;
+        return result;
+    }
+
+
+    /**
+     * @return x & y
+     * test: testGetLocation
+     */
+    public int[] getLocation(){
+        String url = "https://www.testandquiz.com/selenium/testing.html";
+        driver.get(url);
+        int[] result = new int[2];
+        By textBoxCss = By.cssSelector("#fname");
+        WebElement we = wait.until(ExpectedConditions.presenceOfElementLocated(textBoxCss));
+        Point point = we.getLocation();
+        result[0] = point.x;
+        result[1] = point.y;
+        return result;
+    }
+
+    /**
+     * test: testHandlingAlerts
+     */
+    public boolean handlingAlerts(){
+        driver.navigate().to("https://www.testandquiz.com/selenium/testing.html");
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // This  will scroll down the page by  500 pixel vertical
+        js.executeScript("window.scrollBy(0,500)");
+
+        //Handling alert boxes
+        //Click on generate alert button
+        By generateAlertBoxBtn = By.xpath("//button[contains(text(),'Generate Alert Box')]");
+        we = wait.until(ExpectedConditions.elementToBeClickable(generateAlertBoxBtn));
+        we.click();
+        //driver.findElement(By.linkText("Generate Alert Box")).click();
+
+        //Using Alert class to first switch to or focus to the alert box
+        Alert alert = (Alert) driver.switchTo().alert();
+
+        //Using accept() method to accept the alert box
+        alert.accept();
+
+        try{Thread.sleep(2000);} catch(InterruptedException e){e.printStackTrace();}
+
+        return true;
+    }
+
+    /**
+     * read file and manage the data before write out the file for output
+     * @return number of lines
+     * @throws Exception
+     * test: testIoData
+     */
+    public int ioData(String inputData, String outputData) throws Exception{
+        File fileInput = new File(inputData);
+        FileWriter fileWriter = new FileWriter(outputData);
+        String interm = "";
+        Scanner sc = new Scanner(fileInput);
+
+        while (sc.hasNextLine()) {
+            interm = (sc.nextLine()).replaceAll("    private By ", "");
+            fileWriter.write(interm + '\n');
+        }
+        sc.close();
+        fileWriter.close();
+
+        return interm.length(); // length of the last line
+    }
+
+
+
+
+
 
 }

@@ -11,6 +11,7 @@
     <class name="com.javatpoint.seleniumjavatpoint.GoogleAboutPageTest"/>
     <class name="com.javatpoint.seleniumjavatpoint.GoogleMainPageTest"/>
     <class name="com.javatpoint.seleniumjavatpoint.MiscellaneousTest"/>
+    <class name="com.javatpoint.seleniumjavatpoint.SwitchWindowsTest"/>
 
   </classes>
 </test> <!-- Test -->

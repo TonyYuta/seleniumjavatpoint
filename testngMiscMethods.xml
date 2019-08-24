@@ -25,7 +25,8 @@
           <exclude name="testDropdown"/>
           <exclude name="testGetCurrentUrl"/>
           <exclude name="testGetPageSource"/>
-          <include name="testNavigate"/>
+          <exclude name="testNavigate"/>
+          <include name="testIsDisplayed"/>
         </methods>
       </class>
     </classes>
